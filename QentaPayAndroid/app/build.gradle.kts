@@ -9,8 +9,8 @@ android {
 
     defaultConfig {
         applicationId = "com.example.qentapayandroid"
-        minSdk = 36
-        targetSdk = 36
+        minSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -44,6 +44,7 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation("com.google.android.gms:play-services-wallet:19.3.0")
     testImplementation(libs.junit)
+    implementation("androidx.browser:browser:1.8.0")
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
