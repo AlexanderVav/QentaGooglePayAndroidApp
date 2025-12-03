@@ -37,6 +37,7 @@ android {
 
 dependencies {
 
+    //usual dependencies / not required by GooglePay
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -47,4 +48,10 @@ dependencies {
     implementation("androidx.browser:browser:1.8.0")
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    //necessary
+    implementation("androidx.webkit:webkit:1.14.0")
+
+    //optional
+    implementation("nl.dionsegijn:konfetti-xml:2.0.4")
 }
