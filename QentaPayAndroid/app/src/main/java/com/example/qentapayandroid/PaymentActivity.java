@@ -20,6 +20,7 @@ import androidx.webkit.WebViewFeature;
 
 public class PaymentActivity extends AppCompatActivity {
 
+    public static final String NGROK_URL = "https://35e8931d8cf8.ngrok-free.app";
     private static final CharSequence SHOPPER_URL_RESULT = "return.php#success";
     private WebView webView;
 
@@ -52,7 +53,7 @@ public class PaymentActivity extends AppCompatActivity {
 
         // Start URL -> set to localhost if you are using a simulator
         //otherwise you can use zrok or ngrok to create a tunnel for your device
-        webView.loadUrl("https://35e8931d8cf8.ngrok-free.app");
+        webView.loadUrl(NGROK_URL);
     }
 
     @SuppressLint("SetJavaScriptEnabled")
