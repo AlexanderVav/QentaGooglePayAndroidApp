@@ -40,7 +40,7 @@ This project serves as a reference implementation for that flow, including handl
 ## ⚙️ Settings
 
 * **Docker**: Please git clone the repo for QPay and set it up with [Docker](https://github.com/hobex/qcp-example-php.git). Important settings in the `/includes/config.inc.php` file are:
-* `param = $api['endpoint'] = getenv('QCP_ENDPOINT') ?: 'https://api.qenta.com/page/init.php';` to change to your url endpoint. If you change this endpoint please be advised to either use `paymentState` on your success page or implement your keyword in the app.
+* `param = $api['endpoint'] = getenv('QCP_ENDPOINT') ?: 'https://papi.hobex.at/page/init.php';` to change to your url endpoint. If you change this endpoint please be advised to either use `paymentState` on your success page or implement your keyword in the app.
 * `param = $paymentTypes['GOOGLEPAY'] = 'GOOGLEPAY';` is the paymentType that you want to use. (Credit Card, Paypal, GooglePay, ApplePay).
 
 ## 🛜 NGROK
