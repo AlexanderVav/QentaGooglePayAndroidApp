@@ -9,8 +9,8 @@ android {
 
     defaultConfig {
         applicationId = "com.example.qentapayandroid"
-        minSdk = 36
-        targetSdk = 36
+        minSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -37,6 +37,7 @@ android {
 
 dependencies {
 
+    //usual dependencies / not required by GooglePay
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -44,6 +45,13 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation("com.google.android.gms:play-services-wallet:19.3.0")
     testImplementation(libs.junit)
+    implementation("androidx.browser:browser:1.8.0")
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    //necessary
+    implementation("androidx.webkit:webkit:1.14.0")
+
+    //optional
+    implementation("nl.dionsegijn:konfetti-xml:2.0.4")
 }
