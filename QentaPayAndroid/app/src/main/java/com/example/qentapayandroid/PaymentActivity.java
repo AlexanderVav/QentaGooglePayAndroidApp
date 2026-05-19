@@ -20,7 +20,7 @@ import androidx.webkit.WebViewFeature;
 
 public class PaymentActivity extends AppCompatActivity {
 
-    public static final String NGROK_URL = "https://35e8931d8cf8.ngrok-free.app";
+    public static final String NGROK_URL = "https://60ce-62-99-200-68.ngrok-free.app/";
     private static final CharSequence SHOPPER_URL_RESULT = "return.php#success";
     private WebView webView;
 
