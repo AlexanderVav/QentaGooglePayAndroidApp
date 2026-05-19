@@ -7,17 +7,26 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <!-- Centers the button Horizontally -->
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+
+    <!-- Centers the button Vertically -->
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent" />
+
+    <!-- WebView for the Google Pay page -->
+
     <Button
         android:id="@+id/btnGooglePay"
         android:layout_width="296dp"
         android:layout_height="38dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="424dp"
         android:text="Pay with Google Pay"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- WebView for the Google Pay page -->
     <WebView
         android:id="@+id/webView"
         android:layout_width="0dp"
