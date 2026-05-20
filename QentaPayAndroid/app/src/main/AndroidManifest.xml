@@ -25,13 +25,31 @@
         </activity>
 
         <activity
-            android:name=".PaymentActivity"
+            android:name=".PaymentActivityWebView"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
 
         <activity
             android:name=".SuccessActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <activity
+            android:name=".PaymentActivityChromeCustomTabs"
+            android:exported="true"
+            android:launchMode="singleTask"> <!-- singleTask is crucial to route the redirect back to the same instance -->
+
+            <!-- Intent filter to capture the redirect URL from Chrome Custom Tabs -->
+            <intent-filter android:label="Payment Return Handler">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <!-- Adjust the host and path to match your actual ngrok/zrok redirect URL -->
+                <data android:scheme="https"
+                    android:host="60ce-62-99-200-68.ngrok-free.app"
+                    android:pathPrefix="/return.php" />
+            </intent-filter>
+        </activity>
 
     </application>
 

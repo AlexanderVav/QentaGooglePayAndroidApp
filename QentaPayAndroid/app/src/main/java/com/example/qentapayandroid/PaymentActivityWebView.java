@@ -1,5 +1,7 @@
 package com.example.qentapayandroid;
 
+import static com.example.qentapayandroid.MainActivity.NGROK_URL;
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
@@ -18,9 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.webkit.WebSettingsCompat;
 import androidx.webkit.WebViewFeature;
 
-public class PaymentActivity extends AppCompatActivity {
-
-    public static final String NGROK_URL = "https://60ce-62-99-200-68.ngrok-free.app/";
+public class PaymentActivityWebView extends AppCompatActivity {
     private static final CharSequence SHOPPER_URL_RESULT = "return.php#success";
     private WebView webView;
 
@@ -62,8 +62,6 @@ public class PaymentActivity extends AppCompatActivity {
         webSettings.setJavaScriptEnabled(true);
         webSettings.setDomStorageEnabled(true);
 
-        // ... deine anderen Settings ...
-
         webView.addJavascriptInterface(new WebAppInterface(), "AndroidBridge");
 
         webView.setWebViewClient(new WebViewClient() {
@@ -71,10 +69,8 @@ public class PaymentActivity extends AppCompatActivity {
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
 
-                // 1. Sofort lesen
                 readVisibleText(view);
 
-                // 2. Klick-Listener (falls sich der Text erst nach Klick ändert)
                 String jsListener =
                         "var checkVisibleText = function() {" +
                                 "   setTimeout(function() {" +
@@ -98,7 +94,6 @@ public class PaymentActivity extends AppCompatActivity {
     }
 
     private void readPageContent(WebView view) {
-        //here we set what should be read whole page or just the url or other stuff
         view.evaluateJavascript("window.AndroidBridge.sendData(document.documentElement.outerHTML);", null);
     }
 
@@ -149,12 +144,12 @@ public class PaymentActivity extends AppCompatActivity {
 
         private void finishPayment(boolean success) {
             if (success) {
-                Intent intent = new Intent(PaymentActivity.this, SuccessActivity.class);
+                Intent intent = new Intent(PaymentActivityWebView.this, SuccessActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
                 startActivity(intent);
             } else {
-                Toast.makeText(PaymentActivity.this, "Zahlung fehlgeschlagen", Toast.LENGTH_SHORT).show();
+                Toast.makeText(PaymentActivityWebView.this, "Zahlung fehlgeschlagen", Toast.LENGTH_SHORT).show();
                 setResult(RESULT_CANCELED);
             }
             finish();
