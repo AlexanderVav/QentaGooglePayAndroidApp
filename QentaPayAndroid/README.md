@@ -41,8 +41,9 @@ This project serves as a reference implementation for that flow, including handl
 
 * **Docker**: Please git clone the repo for QPay and set it up with [Docker](https://github.com/hobex/qcp-example-php.git). Important settings in the `/includes/config.inc.php` file are:
 * `param = $api['endpoint'] = getenv('QCP_ENDPOINT') ?: 'https://papi.hobex.at/page/init.php';` to change to your url endpoint. If you change this endpoint please be advised to either use `paymentState` on your success page or implement your keyword in the app.
-* `param = $paymentTypes['GOOGLEPAY'] = 'GOOGLEPAY';` is the paymentType that you want to use. (Credit Card, Paypal, GooglePay, ApplePay).
-* Please be advised that without this the page returns an error (404 page not found).
+* `param = $paymentTypes['GOOGLEPAY'] = 'GOOGLEPAY';` is the paymentType that you want to use. (Credit Card, PayPal, GooglePay, Apple Pay).
+* Please be advised that without the page returns an error (404 page not found).
+* Depending on if you either want to use Chrome Custom Tabs or Webviews you would need to set the variable "isUsingWebView".
 
 ## 🛜 NGROK
 

@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
 
     private Button payButton;
+    public static final String NGROK_URL = "https://xib52gsaxp67.share.zrok.io";
 
     private final ActivityResultLauncher<Intent> paymentLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
@@ -34,7 +35,16 @@ public class MainActivity extends AppCompatActivity {
         payButton = findViewById(R.id.btnGooglePay);
 
         payButton.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, PaymentActivity.class);
+            //switch for Webview vs Chrome Custom Tabs
+            boolean isUsingWebView = false;
+            Intent intent = null;
+
+            if (isUsingWebView) {
+                intent = new Intent(MainActivity.this, PaymentActivityWebView.class);
+            }
+            else {
+                intent = new Intent(MainActivity.this, PaymentActivityChromeCustomTabs.class);
+            }
             paymentLauncher.launch(intent);
         });
     }

@@ -37,6 +37,7 @@ android {
 
 dependencies {
 
+    implementation(libs.androidx.browser)
     //usual dependencies / not required by GooglePay
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
